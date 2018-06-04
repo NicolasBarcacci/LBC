@@ -26,6 +26,7 @@ dependencies {
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
+    // Architecture Component
     implementation "android.arch.lifecycle:livedata-core:$lifecycle_version"
     implementation "android.arch.paging:common:$paging_version"
 }
