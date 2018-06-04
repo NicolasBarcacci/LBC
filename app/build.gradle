@@ -25,6 +25,9 @@ dependencies {
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
+    // Architecture Component
+    implementation "android.arch.navigation:navigation-fragment:$navigation_version"
+
     // App Support Library
     implementation "com.android.support:appcompat-v7:$support_library_version"
     implementation "com.android.support.constraint:constraint-layout:1.1.0"
