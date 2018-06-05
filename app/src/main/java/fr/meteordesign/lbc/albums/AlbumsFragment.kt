@@ -11,9 +11,11 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.NavHostFragment
 import fr.meteordesign.domain.Album
 import fr.meteordesign.lbc.R
+import fr.meteordesign.lbc.songs.SongsFragmentArgs
 import kotlinx.android.synthetic.main.fragment_albums.*
 
 class AlbumsFragment: Fragment(), AlbumsAdapter.OnItemClickListener{
+
     private val model by lazy { ViewModelProviders.of(this, AlbumsViewModelProvider()) [AlbumsViewModel::class.java] }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
@@ -34,6 +36,7 @@ class AlbumsFragment: Fragment(), AlbumsAdapter.OnItemClickListener{
 
     override fun onItemClick(album: Album) {
         NavHostFragment.findNavController(this)
-                .navigate(R.id.action_albumsFragment_to_songsFragment)
+                .navigate(R.id.action_albumsFragment_to_songsFragment,
+                        SongsFragmentArgs(album).toBundle())
     }
 }
