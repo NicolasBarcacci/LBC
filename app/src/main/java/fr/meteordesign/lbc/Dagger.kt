@@ -5,6 +5,8 @@ import android.content.Context
 import dagger.Component
 import dagger.Module
 import dagger.Provides
+import fr.meteordesign.domain.repository.MusicRepository
+import fr.meteordesign.lbc.mockup.MusicRepositoryMockup
 import javax.inject.Singleton
 
 lateinit var dagger: DaggerComponent
@@ -16,7 +18,7 @@ fun initDagger(application: Application) {
 }
 
 @Singleton
-@Component(modules = [AppModule::class])
+@Component(modules = [AppModule::class, MusicRepositoryMockupModule::class])
 interface DaggerComponent
 
 @Module
@@ -25,4 +27,12 @@ class AppModule(private val application: Application) {
     @Provides
     @Singleton
     fun getContext(): Context = application
+}
+
+@Module
+class MusicRepositoryMockupModule {
+
+    @Provides
+    @Singleton
+    fun getMusicRepository(): MusicRepository = MusicRepositoryMockup()
 }
