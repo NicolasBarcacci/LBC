@@ -6,6 +6,7 @@ import dagger.Component
 import dagger.Module
 import dagger.Provides
 import fr.meteordesign.domain.repository.MusicRepository
+import fr.meteordesign.lbc.albums.AlbumsViewModelProvider
 import fr.meteordesign.lbc.mockup.MusicRepositoryMockup
 import javax.inject.Singleton
 
@@ -19,7 +20,9 @@ fun initDagger(application: Application) {
 
 @Singleton
 @Component(modules = [AppModule::class, MusicRepositoryMockupModule::class])
-interface DaggerComponent
+interface DaggerComponent {
+    fun inject(albumsViewModelProvider: AlbumsViewModelProvider)
+}
 
 @Module
 class AppModule(private val application: Application) {

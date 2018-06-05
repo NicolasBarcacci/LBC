@@ -37,7 +37,7 @@ class MusicRepositoryMockup : MusicRepository {
         this.songs.value = songs
     }
 
-    override fun albumsByPage(): LiveData<List<Album>> = albums
+    override fun albums(): LiveData<List<Album>> = albums
 
     override fun songs(albumId: Long): LiveData<List<Song>> = songs
 }

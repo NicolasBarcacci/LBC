@@ -5,6 +5,6 @@ import fr.meteordesign.domain.Album
 import fr.meteordesign.domain.Song
 
 interface MusicRepository {
-    fun albumsByPage(): LiveData<List<Album>>
+    fun albums(): LiveData<List<Album>>
     fun songs(albumId: Long): LiveData<List<Song>>
 }
