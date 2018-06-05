@@ -6,5 +6,13 @@
     <fragment
         android:id="@+id/albumsFragment"
         android:name="fr.meteordesign.lbc.albums.AlbumsFragment"
-        android:label="AlbumsFragment" />
+        android:label="AlbumsFragment" >
+        <action
+            android:id="@+id/action_albumsFragment_to_songsFragment"
+            app:destination="@id/songsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/songsFragment"
+        android:name="fr.meteordesign.lbc.songs.SongsFragment"
+        android:label="SongsFragment" />
 </navigation>

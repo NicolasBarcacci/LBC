@@ -19,6 +19,8 @@ class AlbumsAdapter(context: Context) : RecyclerView.Adapter<AlbumViewHolder>() 
     @Inject
     lateinit var imageLoader: ImageLoader
 
+    var onItemClickListener: OnItemClickListener? = null
+
     init {
         dagger.inject(this)
     }
@@ -31,12 +33,24 @@ class AlbumsAdapter(context: Context) : RecyclerView.Adapter<AlbumViewHolder>() 
 
     override fun getItemCount(): Int = albums.size
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AlbumViewHolder =
-            AlbumViewHolder(imageLoader,
-                    inflater.inflate(R.layout.list_item_album, parent, false))
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AlbumViewHolder {
+        val holder = AlbumViewHolder(imageLoader,
+                inflater.inflate(R.layout.list_item_album, parent, false))
+        holder.itemView.setOnClickListener {
+            onItemClickListener?.onItemClick(getAlbum(holder.adapterPosition))
+        }
+
+        return holder
+    }
 
     override fun onBindViewHolder(holder: AlbumViewHolder, position: Int) {
-        holder.bind(albums[position])
+        holder.bind(getAlbum(position))
+    }
+
+    fun getAlbum(position: Int): Album = albums[position]
+
+    interface OnItemClickListener {
+        fun onItemClick(album: Album)
     }
 }
 
