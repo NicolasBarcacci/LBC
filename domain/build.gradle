@@ -28,5 +28,4 @@ dependencies {
 
     // Architecture Component
     implementation "android.arch.lifecycle:livedata-core:$lifecycle_version"
-    implementation "android.arch.paging:common:$paging_version"
 }
