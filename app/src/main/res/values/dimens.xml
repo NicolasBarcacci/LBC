@@ -6,5 +6,7 @@
 
     <integer name="albums_column_count">1</integer>
 
-    <string name="album_ratio">1:1</string>
+    <string name="cover_ratio">1:1</string>
+
+    <dimen name="height_song_list_item">48dp</dimen>
 </resources>

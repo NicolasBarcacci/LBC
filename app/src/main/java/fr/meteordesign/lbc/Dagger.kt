@@ -11,6 +11,7 @@ import fr.meteordesign.lbc.albums.AlbumsViewModelProvider
 import fr.meteordesign.lbc.imageloader.GlideImageLoader
 import fr.meteordesign.lbc.imageloader.ImageLoader
 import fr.meteordesign.lbc.mockup.MusicRepositoryMockup
+import fr.meteordesign.lbc.songs.SongsFragment
 import fr.meteordesign.lbc.songs.SongsViewModelProvider
 import javax.inject.Singleton
 
@@ -31,6 +32,7 @@ interface DaggerComponent {
     fun inject(albumsViewModelProvider: AlbumsViewModelProvider)
     fun inject(albumsAdapter: AlbumsAdapter)
     fun inject(songsViewModelProvider: SongsViewModelProvider)
+    fun inject(songsFragment: SongsFragment)
 }
 
 @Module

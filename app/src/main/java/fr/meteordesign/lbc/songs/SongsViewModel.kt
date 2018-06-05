@@ -19,7 +19,7 @@ class SongsViewModelProvider(private val album: Album) : ViewModelProvider.NewIn
     }
 }
 
-class SongsViewModel(musicRepository: MusicRepository, album: Album): ViewModel() {
+class SongsViewModel(musicRepository: MusicRepository, val album: Album) : ViewModel() {
 
     val songs = musicRepository.songs(album.id)
 
