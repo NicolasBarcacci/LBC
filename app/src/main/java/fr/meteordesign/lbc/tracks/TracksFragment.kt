@@ -1,4 +1,4 @@
-package fr.meteordesign.lbc.songs
+package fr.meteordesign.lbc.tracks
 
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
@@ -13,22 +13,22 @@ import fr.meteordesign.lbc.ParcelableAlbum
 import fr.meteordesign.lbc.R
 import fr.meteordesign.lbc.dagger
 import fr.meteordesign.lbc.imageloader.ImageLoader
-import kotlinx.android.synthetic.main.fragment_songs.*
+import kotlinx.android.synthetic.main.fragment_tracks.*
 import javax.inject.Inject
 
-class SongsFragmentArgs(val album: Album) {
+class TracksFragmentArgs(val album: Album) {
 
     companion object {
         private const val ALBUM = "ALBUM"
 
-        fun deserialize(bundle: Bundle?): SongsFragmentArgs {
+        fun deserialize(bundle: Bundle?): TracksFragmentArgs {
             if (bundle == null) {
-                throw IllegalArgumentException("A bundle is needed. Provide one through SongsFragmentArgs")
+                throw IllegalArgumentException("A bundle is needed. Provide one through TracksFragmentArgs")
             }
 
             val parcelableAlbum = bundle.getParcelable<ParcelableAlbum>(ALBUM)
 
-            return SongsFragmentArgs(parcelableAlbum.toAlbum())
+            return TracksFragmentArgs(parcelableAlbum.toAlbum())
         }
     }
 
@@ -39,11 +39,11 @@ class SongsFragmentArgs(val album: Album) {
     }
 }
 
-class SongsFragment : Fragment() {
+class TracksFragment : Fragment() {
 
     private val model by lazy {
-        val args = SongsFragmentArgs.deserialize(arguments)
-        ViewModelProviders.of(this, SongsViewModelProvider(args.album))[SongsViewModel::class.java]
+        val args = TracksFragmentArgs.deserialize(arguments)
+        ViewModelProviders.of(this, TracksViewModelProvider(args.album))[TracksViewModel::class.java]
     }
 
     @Inject
@@ -55,19 +55,19 @@ class SongsFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
-            inflater.inflate(R.layout.fragment_songs, container, false)
+            inflater.inflate(R.layout.fragment_tracks, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         imageLoader.load(model.album.coverUrl)
-                .into(image_view_songs_cover)
+                .into(image_view_tracks_cover)
 
-        val adapter = SongsAdapter(context!!)
-        recycler_view_songs_list.layoutManager = LinearLayoutManager(context)
-        recycler_view_songs_list.setHasFixedSize(true)
-        recycler_view_songs_list.adapter = adapter
+        val adapter = TracksAdapter(context!!)
+        recycler_view_tracks_list.layoutManager = LinearLayoutManager(context)
+        recycler_view_tracks_list.setHasFixedSize(true)
+        recycler_view_tracks_list.adapter = adapter
 
-        model.songs.observe(this, Observer { adapter.songs = it!! })
+        model.tracks.observe(this, Observer { adapter.tracks = it!! })
     }
 }
