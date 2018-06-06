@@ -12,6 +12,6 @@ class App: Application() {
         Timber.plant(Timber.DebugTree())
 
         initAppDagger(this)
-        initDataDagger()
+        initDataDagger(this)
     }
 }

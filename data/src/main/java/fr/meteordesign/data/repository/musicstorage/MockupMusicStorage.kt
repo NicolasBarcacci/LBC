@@ -2,17 +2,16 @@ package fr.meteordesign.data.repository.musicstorage
 
 import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MutableLiveData
-import fr.meteordesign.domain.Album
-import fr.meteordesign.domain.Track
-import fr.meteordesign.domain.repository.MusicRepository
+import fr.meteordesign.data.entity.AlbumEntity
+import fr.meteordesign.data.entity.TrackEntity
 
 private const val COVER = "http://placehold.it/600/92c952"
 private const val TRACK_NAME = "accusamus beatae ad facilis cum similique qui sunt"
 
 class MusicStorageMockup : MusicStorage {
 
-    private val albums = MutableLiveData<List<Album>>()
-    private val tracks = MutableLiveData<List<Track>>()
+    private val albums = MutableLiveData<List<AlbumEntity>>()
+    private val tracks = MutableLiveData<List<TrackEntity>>()
 
     init {
         initAlbums()
@@ -20,24 +19,24 @@ class MusicStorageMockup : MusicStorage {
     }
 
     private fun initAlbums() {
-        val albums = ArrayList<Album>()
+        val albums = ArrayList<AlbumEntity>()
         for (i in 0..10) {
-            albums.add(Album(i.toLong(), COVER))
+            albums.add(AlbumEntity(i.toLong(), COVER))
         }
 
         this.albums.value = albums
     }
 
     private fun initTracks() {
-        val tracks = ArrayList<Track>()
+        val tracks = ArrayList<TrackEntity>()
         for (i in 0..10) {
-            tracks.add(Track(i.toLong(), TRACK_NAME))
+            tracks.add(TrackEntity(i.toLong(), TRACK_NAME, -1))
         }
 
         this.tracks.value = tracks
     }
 
-    override fun albums(): LiveData<List<Album>> = albums
+    override fun albums(): LiveData<List<AlbumEntity>> = albums
 
-    override fun tracks(albumId: Long): LiveData<List<Track>> = tracks
+    override fun tracks(albumId: Long): LiveData<List<TrackEntity>> = tracks
 }

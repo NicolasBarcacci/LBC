@@ -1,10 +1,10 @@
 package fr.meteordesign.data.repository.musicstorage
 
 import android.arch.lifecycle.LiveData
-import fr.meteordesign.domain.Album
-import fr.meteordesign.domain.Track
+import fr.meteordesign.data.entity.AlbumEntity
+import fr.meteordesign.data.entity.TrackEntity
 
 interface MusicStorage {
-    fun albums(): LiveData<List<Album>>
-    fun tracks(albumId: Long): LiveData<List<Track>>
+    fun albums(): LiveData<List<AlbumEntity>>
+    fun tracks(albumId: Long): LiveData<List<TrackEntity>>
 }

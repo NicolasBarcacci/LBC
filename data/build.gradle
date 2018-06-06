@@ -16,9 +16,13 @@ android {
     }
 
     buildTypes {
+        debug {
+            buildConfigField "boolean", "MOCK_MUSIC_DATA", "false"
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField "boolean", "MOCK_MUSIC_DATA", "false"
         }
     }
 }
@@ -35,5 +39,8 @@ dependencies {
     kapt "com.google.dagger:dagger-compiler:$dagger2_version"
 
     // Architecture Component
-    implementation "android.arch.lifecycle:livedata-core:$lifecycle_version"
+    implementation "android.arch.lifecycle:livedata:$lifecycle_version"
+    kapt "android.arch.lifecycle:compiler:$lifecycle_version"
+    implementation "android.arch.persistence.room:runtime:$room_version"
+    kapt "android.arch.persistence.room:compiler:$room_version"
 }
