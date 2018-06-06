@@ -8,6 +8,9 @@ buildscript {
     ext.room_version = '1.1.0'
     ext.support_library_version = '27.1.1'
     ext.constrait_layout_version = '1.1.0'
+    ext.retrofit_version = '2.4.0'
+    ext.rxjava2_version = '2.1.9'
+    ext.rxandroid2_version = '2.0.2'
     ext.glide_version = '4.7.1'
     ext.timber_version = '4.7.0'
     repositories {
