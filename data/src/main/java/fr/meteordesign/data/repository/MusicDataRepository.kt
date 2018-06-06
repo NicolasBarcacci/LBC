@@ -1,5 +1,6 @@
 package fr.meteordesign.data.repository
 
+import fr.meteordesign.data.dagger
 import fr.meteordesign.data.repository.musicstorage.MusicStorage
 import fr.meteordesign.domain.Album
 import fr.meteordesign.domain.Track

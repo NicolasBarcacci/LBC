@@ -1,7 +1,7 @@
 package fr.meteordesign.lbc
 
 import android.app.Application
-import fr.meteordesign.data.repository.initDataDagger
+import fr.meteordesign.data.initDataDagger
 import timber.log.Timber
 
 class App: Application() {

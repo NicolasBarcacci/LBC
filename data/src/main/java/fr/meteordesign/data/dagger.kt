@@ -1,8 +1,13 @@
-package fr.meteordesign.data.repository
+/*
+ * Copyright (c) 2018. Parrot Faurecia Automotive S.A.S. All rights reserved.
+ */
+
+package fr.meteordesign.data
 
 import dagger.Component
 import dagger.Module
 import dagger.Provides
+import fr.meteordesign.data.repository.MusicDataRepository
 import fr.meteordesign.data.repository.musicstorage.MusicStorage
 import fr.meteordesign.data.repository.musicstorage.MusicStorageMockup
 import javax.inject.Singleton
