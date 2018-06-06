@@ -2,7 +2,7 @@ package fr.meteordesign.lbc.albums
 
 import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProvider
-import fr.meteordesign.domain.repository.MusicRepository
+import fr.meteordesign.domain.repository.PhotosRepository
 import fr.meteordesign.lbc.dagger
 import timber.log.Timber
 import javax.inject.Inject
@@ -10,17 +10,17 @@ import javax.inject.Inject
 class AlbumsViewModelProvider : ViewModelProvider.NewInstanceFactory() {
 
     @Inject
-    lateinit var musicRepository: MusicRepository
+    lateinit var photosRepository: PhotosRepository
 
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         dagger.inject(this)
-        return AlbumsViewModel(musicRepository) as T
+        return AlbumsViewModel(photosRepository) as T
     }
 }
 
-class AlbumsViewModel(musicRepository: MusicRepository) : ViewModel() {
+class AlbumsViewModel(photosRepository: PhotosRepository) : ViewModel() {
 
-    val albums = musicRepository.albums()
+    val albums = photosRepository.albums()
 
     init {
         Timber.i("New instance")

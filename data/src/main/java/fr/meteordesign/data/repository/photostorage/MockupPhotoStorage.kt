@@ -1,21 +1,21 @@
-package fr.meteordesign.data.repository.musicstorage
+package fr.meteordesign.data.repository.photostorage
 
 import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MutableLiveData
 import fr.meteordesign.data.entity.AlbumEntity
-import fr.meteordesign.data.entity.TrackEntity
+import fr.meteordesign.data.entity.PhotoEntity
 
 private const val COVER = "http://placehold.it/600/92c952"
-private const val TRACK_NAME = "accusamus beatae ad facilis cum similique qui sunt"
+private const val PHOTO_NAME = "accusamus beatae ad facilis cum similique qui sunt"
 
-class MusicStorageMockup : MusicStorage {
+class PhotoStorageMockup : PhotoStorage {
 
     private val albums = MutableLiveData<List<AlbumEntity>>()
-    private val tracks = MutableLiveData<List<TrackEntity>>()
+    private val photos = MutableLiveData<List<PhotoEntity>>()
 
     init {
         initAlbums()
-        initTracks()
+        initPhotos()
     }
 
     private fun initAlbums() {
@@ -27,16 +27,16 @@ class MusicStorageMockup : MusicStorage {
         this.albums.value = albums
     }
 
-    private fun initTracks() {
-        val tracks = ArrayList<TrackEntity>()
+    private fun initPhotos() {
+        val photos = ArrayList<PhotoEntity>()
         for (i in 0..10) {
-            tracks.add(TrackEntity(i.toLong(), TRACK_NAME, -1))
+            photos.add(PhotoEntity(i.toLong(), PHOTO_NAME, -1))
         }
 
-        this.tracks.value = tracks
+        this.photos.value = photos
     }
 
     override fun albums(): LiveData<List<AlbumEntity>> = albums
 
-    override fun tracks(albumId: Long): LiveData<List<TrackEntity>> = tracks
+    override fun photos(albumId: Long): LiveData<List<PhotoEntity>> = photos
 }

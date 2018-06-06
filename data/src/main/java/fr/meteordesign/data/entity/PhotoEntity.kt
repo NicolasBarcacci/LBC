@@ -5,20 +5,20 @@ import android.arch.persistence.room.Entity
 import android.arch.persistence.room.ForeignKey
 import android.arch.persistence.room.PrimaryKey
 
-const val TRACK_TABLE = "songs"
-const val TRACK_ID = "id"
-const val TRACK_TITLE = "title"
-const val TRACK_ALBUM_ID = "album_id"
+const val PHOTO_TABLE = "photos"
+const val PHOTO_ID = "id"
+const val PHOTO_TITLE = "title"
+const val PHOTO_ALBUM_ID = "album_id"
 
-@Entity(tableName = TRACK_TABLE,
+@Entity(tableName = PHOTO_TABLE,
         foreignKeys = [ForeignKey(entity = AlbumEntity::class,
                 parentColumns = [ALBUM_COLUMN_ID],
-                childColumns = [TRACK_ID])])
-data class TrackEntity(
+                childColumns = [PHOTO_ID])])
+data class PhotoEntity(
         @PrimaryKey
-        @ColumnInfo(name = TRACK_ID)
+        @ColumnInfo(name = PHOTO_ID)
         val id: Long,
-        @ColumnInfo(name = TRACK_TITLE)
+        @ColumnInfo(name = PHOTO_TITLE)
         val title: String,
-        @ColumnInfo(name = TRACK_ALBUM_ID)
+        @ColumnInfo(name = PHOTO_ALBUM_ID)
         val albumId: Long)

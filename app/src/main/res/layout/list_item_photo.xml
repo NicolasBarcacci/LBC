@@ -4,12 +4,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/height_track_list_item"
+    android:layout_height="@dimen/height_photos_list_item"
     android:paddingStart="@dimen/margin_large"
     android:paddingEnd="@dimen/margin_large">
 
     <TextView
-        android:id="@+id/text_view_track_title"
+        android:id="@+id/text_view_photo_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -1,4 +1,4 @@
 package fr.meteordesign.domain
 
-data class Track(val id: Long,
+data class Photo(val id: Long,
                  val title: String)

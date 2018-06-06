@@ -1,4 +1,4 @@
-package fr.meteordesign.data.repository.musicstorage
+package fr.meteordesign.data.repository.photostorage
 
 import android.arch.lifecycle.LiveData
 import android.arch.persistence.room.Dao
@@ -6,11 +6,11 @@ import android.arch.persistence.room.Query
 import fr.meteordesign.data.entity.*
 
 @Dao
-interface MusicDao : MusicStorage {
+interface PhotoDao : PhotoStorage {
 
     @Query("SELECT * FROM ${ALBUM_TABLE}")
     override fun albums(): LiveData<List<AlbumEntity>>
 
-    @Query("SELECT * FROM ${TRACK_TABLE} WHERE ${TRACK_ALBUM_ID} = :albumId")
-    override fun tracks(albumId: Long): LiveData<List<TrackEntity>>
+    @Query("SELECT * FROM ${PHOTO_TABLE} WHERE ${PHOTO_ALBUM_ID} = :albumId")
+    override fun photos(albumId: Long): LiveData<List<PhotoEntity>>
 }

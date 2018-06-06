@@ -8,5 +8,5 @@
 
     <string name="cover_ratio">1:1</string>
 
-    <dimen name="height_track_list_item">48dp</dimen>
+    <dimen name="height_photos_list_item">48dp</dimen>
 </resources>

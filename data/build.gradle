@@ -17,12 +17,12 @@ android {
 
     buildTypes {
         debug {
-            buildConfigField "boolean", "MOCK_MUSIC_DATA", "false"
+            buildConfigField "boolean", "MOCK_PHOTO_DATA", "true"
         }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            buildConfigField "boolean", "MOCK_MUSIC_DATA", "false"
+            buildConfigField "boolean", "MOCK_PHOTO_DATA", "false"
         }
     }
 }
