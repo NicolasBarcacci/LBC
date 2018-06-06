@@ -1,4 +1,4 @@
 package fr.meteordesign.domain
 
 data class Photo(val id: Long,
-                 val title: String)
+                 val url: String)

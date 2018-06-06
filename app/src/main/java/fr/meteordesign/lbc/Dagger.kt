@@ -11,7 +11,7 @@ import fr.meteordesign.lbc.albums.AlbumsAdapter
 import fr.meteordesign.lbc.albums.AlbumsViewModelProvider
 import fr.meteordesign.lbc.imageloader.GlideImageLoader
 import fr.meteordesign.lbc.imageloader.ImageLoader
-import fr.meteordesign.lbc.photos.PhotosFragment
+import fr.meteordesign.lbc.photos.PhotosAdapter
 import fr.meteordesign.lbc.photos.PhotosViewModelProvider
 import javax.inject.Singleton
 
@@ -32,7 +32,7 @@ interface DaggerComponent {
     fun inject(albumsViewModelProvider: AlbumsViewModelProvider)
     fun inject(albumsAdapter: AlbumsAdapter)
     fun inject(photosViewModelProvider: PhotosViewModelProvider)
-    fun inject(photosFragment: PhotosFragment)
+    fun inject(photosAdapter: PhotosAdapter)
 }
 
 @Module

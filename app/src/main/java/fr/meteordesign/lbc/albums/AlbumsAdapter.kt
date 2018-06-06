@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.TextView
 import fr.meteordesign.domain.Album
 import fr.meteordesign.lbc.R
 import fr.meteordesign.lbc.dagger
@@ -56,10 +57,12 @@ class AlbumsAdapter(context: Context) : RecyclerView.Adapter<AlbumViewHolder>() 
 
 class AlbumViewHolder(private val imageLoader: ImageLoader, itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-    private val cover = itemView.findViewById<ImageView>(R.id.image_view_albums_cover)
+    private val coverImageView = itemView.findViewById<ImageView>(R.id.image_view_albums_cover)
+    private val titleTextView = itemView.findViewById<TextView>(R.id.text_view_albums_title)
 
     fun bind(album: Album) {
         imageLoader.load(album.coverUrl)
-                .into(cover)
+                .into(coverImageView)
+        titleTextView.text = album.title
     }
 }

@@ -6,12 +6,14 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 class ParcelableAlbum(private val id: Long,
+                      private val title: String,
                       private val coverUrl: String) : Parcelable {
 
     constructor(album: Album) : this(
             album.id,
+            album.title,
             album.coverUrl
     )
 
-    fun toAlbum(): Album = Album(id, coverUrl)
+    fun toAlbum(): Album = Album(id, title, coverUrl)
 }

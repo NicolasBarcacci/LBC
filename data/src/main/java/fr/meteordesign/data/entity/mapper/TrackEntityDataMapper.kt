@@ -9,5 +9,5 @@ fun transform(photoEntities: LiveData<List<PhotoEntity>>): LiveData<List<Photo>>
         Transformations.map(photoEntities,
                 { it.map { photoEntity -> transform(photoEntity) } })
 
-fun transform(photoEntity: PhotoEntity): Photo = Photo(photoEntity.id, photoEntity.title)
+fun transform(photoEntity: PhotoEntity): Photo = Photo(photoEntity.id, photoEntity.url)
 

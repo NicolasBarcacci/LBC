@@ -1,39 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/recycler_view_photos_list"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <android.support.constraint.Guideline
-        android:id="@+id/guideline_photos_vertical_separator"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent=".3" />
-
-    <ImageView
-        android:id="@+id/image_view_photos_cover"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:paddingStart="@dimen/margin_large"
-        android:paddingTop="@dimen/margin_large"
-        android:paddingEnd="@dimen/margin_large"
-        android:paddingBottom="@dimen/margin_large"
-        app:layout_constraintDimensionRatio="@string/cover_ratio"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_photos_vertical_separator"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler_view_photos_list"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/guideline_photos_vertical_separator"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:listitem="@layout/list_item_photo" />
-
-</android.support.constraint.ConstraintLayout>
+    android:layout_height="match_parent"
+    android:paddingStart="@dimen/margin_small"
+    android:paddingTop="@dimen/margin_small"
+    android:paddingEnd="@dimen/margin_small"
+    android:paddingBottom="@dimen/margin_small"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    tools:context=".MainActivity"
+    tools:layoutManager="GridLayoutManager"
+    tools:listitem="@layout/list_item_photo"
+    tools:spanCount="@integer/photos_column_count" />

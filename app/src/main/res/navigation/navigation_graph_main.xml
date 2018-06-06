@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<navigation xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     app:startDestination="@id/albumsFragment">
 
     <fragment
         android:id="@+id/albumsFragment"
         android:name="fr.meteordesign.lbc.albums.AlbumsFragment"
-        android:label="AlbumsFragment" >
+        android:label="AlbumsFragment">
         <action
             android:id="@+id/action_albumsFragment_to_photosFragment"
             app:destination="@id/photosFragment" />

@@ -9,5 +9,9 @@ fun transform(albumEntities: LiveData<List<AlbumEntity>>): LiveData<List<Album>>
         Transformations.map(albumEntities,
                 { it.map { albumEntity -> transform(albumEntity) } })
 
-fun transform(albumEntity: AlbumEntity): Album = Album(albumEntity.id, albumEntity.coverUrl)
+fun transform(albumEntity: AlbumEntity): Album =
+        Album(
+                albumEntity.id,
+                albumEntity.title,
+                albumEntity.coverUrl)
 

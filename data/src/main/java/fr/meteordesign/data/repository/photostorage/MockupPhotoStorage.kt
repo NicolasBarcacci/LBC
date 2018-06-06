@@ -5,8 +5,8 @@ import android.arch.lifecycle.MutableLiveData
 import fr.meteordesign.data.entity.AlbumEntity
 import fr.meteordesign.data.entity.PhotoEntity
 
-private const val COVER = "http://placehold.it/600/92c952"
-private const val PHOTO_NAME = "accusamus beatae ad facilis cum similique qui sunt"
+private const val URL = "http://placehold.it/600/92c952"
+private const val NAME = "accusamus beatae ad facilis cum similique qui sunt"
 
 class PhotoStorageMockup : PhotoStorage {
 
@@ -21,7 +21,7 @@ class PhotoStorageMockup : PhotoStorage {
     private fun initAlbums() {
         val albums = ArrayList<AlbumEntity>()
         for (i in 0..10) {
-            albums.add(AlbumEntity(i.toLong(), COVER))
+            albums.add(AlbumEntity(i.toLong(), NAME, URL))
         }
 
         this.albums.value = albums
@@ -30,7 +30,7 @@ class PhotoStorageMockup : PhotoStorage {
     private fun initPhotos() {
         val photos = ArrayList<PhotoEntity>()
         for (i in 0..10) {
-            photos.add(PhotoEntity(i.toLong(), PHOTO_NAME, -1))
+            photos.add(PhotoEntity(i.toLong(), URL, -1))
         }
 
         this.photos.value = photos

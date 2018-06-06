@@ -5,8 +5,10 @@
     <dimen name="margin_small">4dp</dimen>
 
     <integer name="albums_column_count">1</integer>
+    <integer name="photos_column_count">1</integer>
 
     <string name="cover_ratio">1:1</string>
 
+    <dimen name="height_album_title">68dp</dimen>
     <dimen name="height_photos_list_item">48dp</dimen>
 </resources>
