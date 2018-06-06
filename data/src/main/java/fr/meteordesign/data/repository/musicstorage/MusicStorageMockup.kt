@@ -1,4 +1,4 @@
-package fr.meteordesign.lbc.mockup
+package fr.meteordesign.data.repository.musicstorage
 
 import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MutableLiveData
@@ -9,7 +9,7 @@ import fr.meteordesign.domain.repository.MusicRepository
 private const val COVER = "http://placehold.it/600/92c952"
 private const val TRACK_NAME = "accusamus beatae ad facilis cum similique qui sunt"
 
-class MusicRepositoryMockup : MusicRepository {
+class MusicStorageMockup : MusicStorage {
 
     private val albums = MutableLiveData<List<Album>>()
     private val tracks = MutableLiveData<List<Track>>()

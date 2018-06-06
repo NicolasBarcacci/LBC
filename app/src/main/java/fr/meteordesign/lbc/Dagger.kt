@@ -5,19 +5,19 @@ import android.content.Context
 import dagger.Component
 import dagger.Module
 import dagger.Provides
+import fr.meteordesign.data.repository.MusicDataRepository
 import fr.meteordesign.domain.repository.MusicRepository
 import fr.meteordesign.lbc.albums.AlbumsAdapter
 import fr.meteordesign.lbc.albums.AlbumsViewModelProvider
 import fr.meteordesign.lbc.imageloader.GlideImageLoader
 import fr.meteordesign.lbc.imageloader.ImageLoader
-import fr.meteordesign.lbc.mockup.MusicRepositoryMockup
 import fr.meteordesign.lbc.tracks.TracksFragment
 import fr.meteordesign.lbc.tracks.TracksViewModelProvider
 import javax.inject.Singleton
 
 lateinit var dagger: DaggerComponent
 
-fun initDagger(application: Application) {
+fun initAppDagger(application: Application) {
     dagger = DaggerDaggerComponent.builder()
             .appModule(AppModule(application))
             .build()
@@ -26,7 +26,7 @@ fun initDagger(application: Application) {
 @Singleton
 @Component(modules = [
     AppModule::class,
-    MusicRepositoryMockupModule::class,
+    MusicRepositoryModule::class,
     ImageLoaderGlideModule::class])
 interface DaggerComponent {
     fun inject(albumsViewModelProvider: AlbumsViewModelProvider)
@@ -44,11 +44,11 @@ class AppModule(private val application: Application) {
 }
 
 @Module
-class MusicRepositoryMockupModule {
+class MusicRepositoryModule {
 
     @Provides
     @Singleton
-    fun getMusicRepository(): MusicRepository = MusicRepositoryMockup()
+    fun getMusicRepository(): MusicRepository = MusicDataRepository()
 }
 
 @Module
