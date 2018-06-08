@@ -63,6 +63,6 @@ class AlbumViewHolder(private val imageLoader: ImageLoader, itemView: View) : Re
     fun bind(album: Album) {
         imageLoader.load(album.coverUrl)
                 .into(coverImageView)
-        titleTextView.text = album.title
+        titleTextView.text = album.title.capitalize()
     }
 }
