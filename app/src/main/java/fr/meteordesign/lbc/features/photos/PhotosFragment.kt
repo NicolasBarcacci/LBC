@@ -43,6 +43,13 @@ class PhotosFragment : Fragment() {
         val args = PhotosFragmentArgs.deserialize(arguments)
         ViewModelProviders.of(this, PhotosViewModelProvider(args.album))[PhotosViewModel::class.java]
     }
+    private lateinit var photosAdapter: PhotosAdapter
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        photosAdapter = PhotosAdapter(context!!)
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
             inflater.inflate(R.layout.fragment_photos, container, false)
@@ -50,12 +57,18 @@ class PhotosFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val adapter = PhotosAdapter(context!!)
+        initView()
+        initObservers()
+    }
+
+    private fun initView() {
         recycler_view_photos_list.layoutManager = GridLayoutManager(
                 context, resources.getInteger(R.integer.photos_column_count))
         recycler_view_photos_list.setHasFixedSize(true)
-        recycler_view_photos_list.adapter = adapter
+        recycler_view_photos_list.adapter = photosAdapter
+    }
 
-        model.photos.observe(this, Observer { adapter.photos = it!! })
+    private fun initObservers() {
+        model.photos.observe(this, Observer { photosAdapter.photos = it!! })
     }
 }

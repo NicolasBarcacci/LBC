@@ -7,9 +7,9 @@ import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import dagger.Component
 import dagger.Module
 import dagger.Provides
+import fr.meteordesign.data.repository.PhotosDataRepository
 import fr.meteordesign.data.repository.photostorage.DATABASE_NAME
 import fr.meteordesign.data.repository.photostorage.PhotoDatabase
-import fr.meteordesign.data.repository.PhotosDataRepository
 import fr.meteordesign.data.repository.photostorage.PhotoStorage
 import fr.meteordesign.data.repository.photostorage.PhotoStorageMockup
 import fr.meteordesign.data.source.PhotosDataSource

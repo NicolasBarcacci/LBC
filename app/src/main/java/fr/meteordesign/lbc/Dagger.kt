@@ -9,10 +9,10 @@ import fr.meteordesign.data.repository.PhotosDataRepository
 import fr.meteordesign.domain.repository.PhotosRepository
 import fr.meteordesign.lbc.features.albums.AlbumsAdapter
 import fr.meteordesign.lbc.features.albums.AlbumsViewModelProvider
-import fr.meteordesign.lbc.imageloader.GlideImageLoader
-import fr.meteordesign.lbc.imageloader.ImageLoader
 import fr.meteordesign.lbc.features.photos.PhotosAdapter
 import fr.meteordesign.lbc.features.photos.PhotosViewModelProvider
+import fr.meteordesign.lbc.imageloader.GlideImageLoader
+import fr.meteordesign.lbc.imageloader.ImageLoader
 import javax.inject.Singleton
 
 lateinit var dagger: DaggerComponent

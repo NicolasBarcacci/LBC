@@ -48,7 +48,7 @@ class AlbumsAdapter(context: Context) : RecyclerView.Adapter<AlbumViewHolder>() 
         holder.bind(getAlbum(position))
     }
 
-    fun getAlbum(position: Int): Album = albums[position]
+    private fun getAlbum(position: Int): Album = albums[position]
 
     interface OnItemClickListener {
         fun onItemClick(album: Album)

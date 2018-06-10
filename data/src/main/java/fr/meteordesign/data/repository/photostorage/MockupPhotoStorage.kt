@@ -17,6 +17,7 @@ class PhotoStorageMockup : PhotoStorage {
         initAlbums()
         initPhotos()
     }
+
     private fun initAlbums() {
         val albums = ArrayList<AlbumEntity>()
         for (i in 0..10) {

@@ -19,7 +19,7 @@ class PhotosViewModelProvider(private val album: Album) : ViewModelProvider.NewI
     }
 }
 
-class PhotosViewModel(photosRepository: PhotosRepository, val album: Album) : ViewModel() {
+class PhotosViewModel(photosRepository: PhotosRepository, album: Album) : ViewModel() {
 
     val photos = photosRepository.photos(album.id)
 
