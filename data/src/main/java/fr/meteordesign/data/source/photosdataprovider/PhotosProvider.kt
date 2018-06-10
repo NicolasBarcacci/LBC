@@ -2,7 +2,6 @@ package fr.meteordesign.data.source.photosdataprovider
 
 import fr.meteordesign.data.entity.JsonPhoto
 import io.reactivex.Observable
-import retrofit2.Call
 import retrofit2.http.GET
 
 interface PhotosProvider  {
