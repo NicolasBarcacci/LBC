@@ -8,11 +8,11 @@ import org.hamcrest.CoreMatchers.equalTo
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.Test
 
-private const val ALBUM_ID:Long = 1
+private const val ALBUM_ID: Long = 1
 private const val ALBUM_TITLE = "title"
 private const val ALBUM_COVER_URL = "url"
 
-class ParcelableAlbumDataMapperTest {
+class ParcelableAlbumDataMapperTests {
 
     @Test
     fun should_be_equals_when_transform_album_to_parcelable_album() {
