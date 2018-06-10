@@ -55,4 +55,8 @@ dependencies {
 
     // Logs management
     implementation "com.jakewharton.timber:timber:$timber_version"
+
+    // Unit tests
+    testImplementation "junit:junit:$junit_version"
+    testImplementation "org.hamcrest:hamcrest-library:$hamcrest_version"
 }
