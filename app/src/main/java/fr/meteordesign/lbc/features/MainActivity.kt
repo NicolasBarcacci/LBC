@@ -1,7 +1,8 @@
-package fr.meteordesign.lbc
+package fr.meteordesign.lbc.features
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import fr.meteordesign.lbc.R
 
 class MainActivity : AppCompatActivity() {
 

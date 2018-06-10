@@ -1,4 +1,4 @@
-package fr.meteordesign.lbc.albums
+package fr.meteordesign.lbc.features.albums
 
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel

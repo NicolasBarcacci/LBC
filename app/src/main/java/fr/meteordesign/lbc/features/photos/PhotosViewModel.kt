@@ -1,4 +1,4 @@
-package fr.meteordesign.lbc.photos
+package fr.meteordesign.lbc.features.photos
 
 import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProvider

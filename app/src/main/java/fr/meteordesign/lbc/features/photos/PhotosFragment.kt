@@ -1,4 +1,4 @@
-package fr.meteordesign.lbc.photos
+package fr.meteordesign.lbc.features.photos
 
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
@@ -9,8 +9,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import fr.meteordesign.domain.Album
-import fr.meteordesign.lbc.entity.ParcelableAlbum
 import fr.meteordesign.lbc.R
+import fr.meteordesign.lbc.entity.ParcelableAlbum
 import fr.meteordesign.lbc.entity.mapper.transform
 import kotlinx.android.synthetic.main.fragment_photos.*
 

@@ -33,7 +33,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:context=".MainActivity"
+        tools:context=".features.MainActivity"
         tools:layoutManager="GridLayoutManager"
         tools:listitem="@layout/list_item_album"
         tools:spanCount="@integer/albums_column_count" />

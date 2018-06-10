@@ -5,7 +5,7 @@
 
     <fragment
         android:id="@+id/albumsFragment"
-        android:name="fr.meteordesign.lbc.albums.AlbumsFragment"
+        android:name="fr.meteordesign.lbc.features.albums.AlbumsFragment"
         android:label="AlbumsFragment">
         <action
             android:id="@+id/action_albumsFragment_to_photosFragment"
@@ -13,6 +13,6 @@
     </fragment>
     <fragment
         android:id="@+id/photosFragment"
-        android:name="fr.meteordesign.lbc.photos.PhotosFragment"
+        android:name="fr.meteordesign.lbc.features.photos.PhotosFragment"
         android:label="PhotosFragment" />
 </navigation>

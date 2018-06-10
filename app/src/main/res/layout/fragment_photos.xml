@@ -13,7 +13,7 @@
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent"
-    tools:context=".MainActivity"
+    tools:context=".features.MainActivity"
     tools:layoutManager="GridLayoutManager"
     tools:listitem="@layout/list_item_photo"
     tools:spanCount="@integer/photos_column_count" />

@@ -1,4 +1,4 @@
-package fr.meteordesign.lbc.albums
+package fr.meteordesign.lbc.features.albums
 
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
@@ -11,7 +11,7 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.NavHostFragment
 import fr.meteordesign.domain.Album
 import fr.meteordesign.lbc.R
-import fr.meteordesign.lbc.photos.PhotosFragmentArgs
+import fr.meteordesign.lbc.features.photos.PhotosFragmentArgs
 import kotlinx.android.synthetic.main.fragment_albums.*
 
 class AlbumsFragment : Fragment(), AlbumsAdapter.OnItemClickListener {

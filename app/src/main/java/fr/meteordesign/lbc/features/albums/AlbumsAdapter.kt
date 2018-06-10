@@ -1,4 +1,4 @@
-package fr.meteordesign.lbc.albums
+package fr.meteordesign.lbc.features.albums
 
 import android.content.Context
 import android.support.v7.widget.RecyclerView
