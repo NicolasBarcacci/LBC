@@ -5,13 +5,13 @@ import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.GridLayoutManager
-import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import fr.meteordesign.domain.Album
-import fr.meteordesign.lbc.ParcelableAlbum
+import fr.meteordesign.lbc.entity.ParcelableAlbum
 import fr.meteordesign.lbc.R
+import fr.meteordesign.lbc.entity.mapper.transform
 import kotlinx.android.synthetic.main.fragment_photos.*
 
 class PhotosFragmentArgs(val album: Album) {
@@ -26,13 +26,13 @@ class PhotosFragmentArgs(val album: Album) {
 
             val parcelableAlbum = bundle.getParcelable<ParcelableAlbum>(ALBUM)
 
-            return PhotosFragmentArgs(parcelableAlbum.toAlbum())
+            return PhotosFragmentArgs(transform(parcelableAlbum))
         }
     }
 
     fun toBundle(): Bundle {
         val bundle = Bundle()
-        bundle.putParcelable(ALBUM, ParcelableAlbum(album))
+        bundle.putParcelable(ALBUM, transform(album))
         return bundle
     }
 }
