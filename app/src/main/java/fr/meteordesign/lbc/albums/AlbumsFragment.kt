@@ -14,9 +14,9 @@ import fr.meteordesign.lbc.R
 import fr.meteordesign.lbc.photos.PhotosFragmentArgs
 import kotlinx.android.synthetic.main.fragment_albums.*
 
-class AlbumsFragment: Fragment(), AlbumsAdapter.OnItemClickListener{
+class AlbumsFragment : Fragment(), AlbumsAdapter.OnItemClickListener {
 
-    private val model by lazy { ViewModelProviders.of(this, AlbumsViewModelProvider()) [AlbumsViewModel::class.java] }
+    private val model by lazy { ViewModelProviders.of(this, AlbumsViewModelProvider())[AlbumsViewModel::class.java] }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
             inflater.inflate(R.layout.fragment_albums, container, false)
@@ -31,6 +31,8 @@ class AlbumsFragment: Fragment(), AlbumsAdapter.OnItemClickListener{
         recycler_view_albums_list.setHasFixedSize(true)
         recycler_view_albums_list.adapter = albumsAdapter
 
+        model.messageVisibility.observe(this, Observer { text_view_albums_messages.visibility = it!! })
+        model.albumsVisibility.observe(this, Observer { recycler_view_albums_list.visibility = it!! })
         model.albums.observe(this, Observer { albumsAdapter.albums = it!! })
     }
 
