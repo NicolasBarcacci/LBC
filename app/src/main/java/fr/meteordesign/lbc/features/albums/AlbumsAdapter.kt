@@ -1,6 +1,7 @@
 package fr.meteordesign.lbc.features.albums
 
 import android.content.Context
+import android.support.v7.util.DiffUtil
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +13,19 @@ import fr.meteordesign.lbc.R
 import fr.meteordesign.lbc.dagger
 import fr.meteordesign.lbc.imageloader.ImageLoader
 import javax.inject.Inject
+
+class AlbumsDiffUtil(private val oldAlbums: List<Album>, private val newAlbums: List<Album>): DiffUtil.Callback() {
+
+    override fun getOldListSize(): Int = oldAlbums.size
+
+    override fun getNewListSize(): Int = newAlbums.size
+
+    override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean =
+            oldAlbums[oldItemPosition].id == newAlbums[newItemPosition].id
+
+    override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean =
+            oldAlbums[oldItemPosition] == newAlbums[newItemPosition]
+}
 
 class AlbumsAdapter(context: Context) : RecyclerView.Adapter<AlbumViewHolder>() {
 
@@ -28,8 +42,9 @@ class AlbumsAdapter(context: Context) : RecyclerView.Adapter<AlbumViewHolder>() 
 
     var albums: List<Album> = ArrayList()
         set(value) {
+            val result = DiffUtil.calculateDiff(AlbumsDiffUtil(field, value))
             field = value
-            notifyDataSetChanged()
+            result.dispatchUpdatesTo(this)
         }
 
     override fun getItemCount(): Int = albums.size
