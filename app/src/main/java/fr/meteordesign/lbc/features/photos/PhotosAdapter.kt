@@ -1,6 +1,7 @@
 package fr.meteordesign.lbc.features.photos
 
 import android.content.Context
+import android.support.v7.util.DiffUtil
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +13,19 @@ import fr.meteordesign.lbc.dagger
 import fr.meteordesign.lbc.imageloader.ImageLoader
 import javax.inject.Inject
 
+class PhotosDiffUtil(private val oldPhotos: List<Photo>, private val newPhotos: List<Photo>): DiffUtil.Callback() {
+
+    override fun getOldListSize(): Int = oldPhotos.size
+
+    override fun getNewListSize(): Int = newPhotos.size
+
+    override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean =
+            oldPhotos[oldItemPosition].id == newPhotos[newItemPosition].id
+
+    override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean =
+            oldPhotos[oldItemPosition] == newPhotos[newItemPosition]
+}
+
 class PhotosAdapter(context: Context) : RecyclerView.Adapter<PhotoViewHolder>() {
 
     @Inject
@@ -21,8 +35,9 @@ class PhotosAdapter(context: Context) : RecyclerView.Adapter<PhotoViewHolder>() 
 
     var photos: List<Photo> = ArrayList()
         set(value) {
+            val result = DiffUtil.calculateDiff(PhotosDiffUtil(field, value))
             field = value
-            notifyDataSetChanged()
+            result.dispatchUpdatesTo(this)
         }
 
     init {
