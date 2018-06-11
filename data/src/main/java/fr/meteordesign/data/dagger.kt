@@ -3,10 +3,12 @@ package fr.meteordesign.data
 import android.app.Application
 import android.arch.persistence.room.Room
 import android.content.Context
+import android.content.SharedPreferences
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import dagger.Component
 import dagger.Module
 import dagger.Provides
+import fr.meteordesign.data.repository.PHOTOS_PREFERENCES
 import fr.meteordesign.data.repository.PhotosDataRepository
 import fr.meteordesign.data.repository.photostorage.DATABASE_NAME
 import fr.meteordesign.data.repository.photostorage.PhotoDatabase
@@ -56,6 +58,11 @@ class PhotosStorageModule(private val isMock: Boolean) {
     @Singleton
     fun getPhotosStorage(roomDatabase: PhotoDatabase): PhotoStorage =
             if (!isMock) roomDatabase.musicDao() else PhotoStorageMockup()
+
+    @Provides
+    @Singleton
+    fun getPhotosSharedPrederence(context: Context): SharedPreferences =
+            context.getSharedPreferences(PHOTOS_PREFERENCES, Context.MODE_PRIVATE)
 }
 
 @Module

@@ -1,15 +1,13 @@
 package fr.meteordesign.data.source
 
-import android.content.BroadcastReceiver
-import android.content.Context
+import android.content.*
 import android.content.Context.CONNECTIVITY_SERVICE
-import android.content.Intent
-import android.content.IntentFilter
 import android.net.ConnectivityManager
 import android.net.ConnectivityManager.CONNECTIVITY_ACTION
 import fr.meteordesign.data.dagger
 import fr.meteordesign.data.entity.mapper.transformToAlbumEntity
 import fr.meteordesign.data.entity.mapper.transformToPhotoEntity
+import fr.meteordesign.data.repository.DOWNLOAD_COMPLETE
 import fr.meteordesign.data.repository.photostorage.PhotoStorage
 import fr.meteordesign.data.source.photosdataprovider.PhotosProvider
 import io.reactivex.schedulers.Schedulers
@@ -28,6 +26,8 @@ class PhotosDataSource {
     lateinit var photosProvider: PhotosProvider
     @Inject
     lateinit var photoStorage: PhotoStorage
+    @Inject
+    lateinit var photosPreferences: SharedPreferences
 
     init {
         dagger.inject(this)
@@ -76,5 +76,8 @@ class PhotosDataSource {
     private fun onDownloadCompleted() {
         Timber.d("onDownloadCompleted")
         context.unregisterReceiver(networkChangeReceiver)
+        photosPreferences.edit()
+                .putBoolean(DOWNLOAD_COMPLETE, true)
+                .apply()
     }
 }
